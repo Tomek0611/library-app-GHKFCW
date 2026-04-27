@@ -1,5 +1,109 @@
 @use '@angular/material' as mat;
 
+
+.dark-mode {
+  background-color: #1a1a2e !important;
+  color: #e0e0e0 !important;
+
+  mat-card, .mat-mdc-card {
+    background: #16213e !important;
+    color: #e0e0e0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mat-mdc-form-field {
+    color: #e0e0e0 !important;
+  }
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: rgba(255,255,255,0.3) !important;
+  }
+
+  .mat-mdc-input-element,
+  input.mat-mdc-input-element {
+    color: #e0e0e0 !important;
+  }
+
+  .mat-mdc-floating-label {
+    color: rgba(255,255,255,0.6) !important;
+  }
+
+  .mat-icon {
+    color: rgba(255,255,255,0.6) !important;
+  }
+
+  table.mat-mdc-table {
+    background: #16213e !important;
+    color: #e0e0e0 !important;
+  }
+
+  tr.mat-mdc-row:hover {
+    background-color: #0f3460 !important;
+  }
+
+  .mat-mdc-paginator {
+    background: #16213e !important;
+    color: #e0e0e0 !important;
+  }
+
+  .mat-mdc-paginator-range-label,
+  .mat-mdc-paginator-page-size-label {
+    color: #e0e0e0 !important;
+  }
+
+  a {
+    color: #7986cb !important;
+  }
+
+  .mat-mdc-select-value {
+    color: #e0e0e0 !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: rgba(255,255,255,0.6) !important;
+  }
+
+  .mat-mdc-select-panel, .mdc-menu-surface {
+    background: #16213e !important;
+  }
+
+  .mat-mdc-option {
+    background: #16213e !important;
+    color: #e0e0e0 !important;
+  }
+
+  .mat-mdc-option:hover {
+    background: #0f3460 !important;
+  }
+
+  .mat-mdc-option.mdc-list-item--selected {
+    background: #0f3460 !important;
+    color: #7986cb !important;
+  }
+
+  span[style*="background: #e8eaf6"] {
+    background: #0f3460 !important;
+    color: #7986cb !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a2e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0f3460;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #533483;
+  }
+  .dark-mode .content {
+  background: #1a1a2e !important;
+}
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +114,7 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #f5f7fb;
   color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, mat-card-title {
@@ -26,6 +131,7 @@ h1, h2, h3, mat-card-title {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 700;
 }
+
 mat-card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
   border-radius: 12px !important;
@@ -56,7 +162,6 @@ a:hover {
   font-weight: 500;
 }
 
-/* Kártya hover animáció */
 .mat-mdc-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
@@ -66,44 +171,28 @@ a:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Fade in animáció */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* Lista elem animáció */
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .slide-in {
   animation: slideIn 0.25s ease forwards;
 }
 
-/* Oldalsó menü smooth transition */
 div[style*="width"] {
   transition: width 0.3s ease !important;
 }
 
-/* Gomb hover */
 button.mat-mdc-raised-button {
   transition: transform 0.15s ease, box-shadow 0.15s ease !important;
 }
@@ -113,13 +202,11 @@ button.mat-mdc-raised-button:hover {
   box-shadow: 0 6px 16px rgba(63, 81, 181, 0.3) !important;
 }
 
-/* Lekerekített sarkok és soft shadow minden kártyán */
 .mat-mdc-card {
   border-radius: 16px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
 }
 
-/* Nagyobb padding a card contentnél */
 .mat-mdc-card-content {
   padding: 20px !important;
 }
@@ -132,7 +219,6 @@ button.mat-mdc-raised-button:hover {
   padding: 20px 20px 0 !important;
 }
 
-/* Szebb gombok */
 .mat-mdc-raised-button {
   border-radius: 10px !important;
   padding: 8px 24px !important;
@@ -152,7 +238,6 @@ button.mat-mdc-raised-button:hover {
   box-shadow: 0 4px 12px rgba(244, 67, 54, 0.25) !important;
 }
 
-/* Icon gombok */
 .mat-mdc-icon-button {
   border-radius: 10px !important;
   transition: all 0.2s ease !important;
@@ -162,7 +247,6 @@ button.mat-mdc-raised-button:hover {
   transform: scale(1.15) !important;
 }
 
-/* Input mezők */
 .mat-mdc-form-field {
   border-radius: 10px !important;
 }
@@ -175,13 +259,11 @@ button.mat-mdc-raised-button:hover {
   border-radius: 0 10px 10px 0 !important;
 }
 
-/* Paginator */
 .mat-mdc-paginator {
   border-radius: 12px !important;
   background: #f8f9ff !important;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -199,7 +281,7 @@ button.mat-mdc-raised-button:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #9fa8da;
 }
-/* Szerző select dropdown */
+
 .mat-mdc-select-arrow {
   transform: scale(1.8) !important;
   color: #3f51b5 !important;
@@ -213,7 +295,7 @@ button.mat-mdc-raised-button:hover {
 .mat-mdc-select-trigger {
   padding-right: 16px !important;
 }
-/* Dropdown panel háttér */
+
 .mat-mdc-select-panel {
   background: white !important;
   border-radius: 12px !important;
@@ -239,6 +321,7 @@ button.mat-mdc-raised-button:hover {
   color: #3f51b5 !important;
   font-weight: 600 !important;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   transform: scale(1.2) !important;
@@ -246,7 +329,7 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 1 !important;
   cursor: pointer !important;
 }
-/* Paginator magyarul */
+
 .mat-mdc-paginator-page-size-label {
   font-family: 'Inter', sans-serif !important;
 }
