@@ -1,12 +1,11 @@
 @use '@angular/material' as mat;
 
-
 .dark-mode {
-  background-color: #1a1a2e !important;
+  background-color: #1a2e1a !important;
   color: #e0e0e0 !important;
 
   mat-card, .mat-mdc-card {
-    background: #16213e !important;
+    background: #1a2e1a !important;
     color: #e0e0e0 !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
   }
@@ -35,16 +34,16 @@
   }
 
   table.mat-mdc-table {
-    background: #16213e !important;
+    background: #1a2e1a !important;
     color: #e0e0e0 !important;
   }
 
   tr.mat-mdc-row:hover {
-    background-color: #0f3460 !important;
+    background-color: #0f3320 !important;
   }
 
   .mat-mdc-paginator {
-    background: #16213e !important;
+    background: #1a2e1a !important;
     color: #e0e0e0 !important;
   }
 
@@ -54,7 +53,7 @@
   }
 
   a {
-    color: #7986cb !important;
+    color: #81c784 !important;
   }
 
   .mat-mdc-select-value {
@@ -66,42 +65,43 @@
   }
 
   .mat-mdc-select-panel, .mdc-menu-surface {
-    background: #16213e !important;
+    background: #1a2e1a !important;
   }
 
   .mat-mdc-option {
-    background: #16213e !important;
+    background: #1a2e1a !important;
     color: #e0e0e0 !important;
   }
 
   .mat-mdc-option:hover {
-    background: #0f3460 !important;
+    background: #0f3320 !important;
   }
 
   .mat-mdc-option.mdc-list-item--selected {
-    background: #0f3460 !important;
-    color: #7986cb !important;
+    background: #0f3320 !important;
+    color: #81c784 !important;
   }
 
   span[style*="background: #e8eaf6"] {
-    background: #0f3460 !important;
-    color: #7986cb !important;
+    background: #0f3320 !important;
+    color: #81c784 !important;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1a1a2e;
+    background: #1a2e1a;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #0f3460;
+    background: #0f3320;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #533483;
+    background: #1b5e20;
   }
-  .dark-mode .content {
-  background: #1a1a2e !important;
-}
+
+  .content {
+    background: #1a2e1a !important;
+  }
 }
 
 * {
@@ -142,12 +142,12 @@ table.mat-mdc-table {
 }
 
 tr.mat-mdc-row:hover {
-  background-color: #f0f4ff;
+  background-color: #f1f8f1;
   transition: background 0.2s;
 }
 
 a {
-  color: #3f51b5;
+  color: #2e7d32;
   text-decoration: none;
 }
 
@@ -156,8 +156,8 @@ a:hover {
 }
 
 .active-link {
-  background-color: #e8eaf6 !important;
-  color: #3f51b5 !important;
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
   border-radius: 8px;
   font-weight: 500;
 }
@@ -199,7 +199,7 @@ button.mat-mdc-raised-button {
 
 button.mat-mdc-raised-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(63, 81, 181, 0.3) !important;
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.3) !important;
 }
 
 .mat-mdc-card {
@@ -225,13 +225,13 @@ button.mat-mdc-raised-button:hover {
   font-weight: 600 !important;
   font-family: 'Inter', sans-serif !important;
   letter-spacing: 0.3px !important;
-  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25) !important;
   transition: all 0.2s ease !important;
 }
 
 .mat-mdc-raised-button:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.35) !important;
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.35) !important;
 }
 
 .mat-mdc-raised-button[color="warn"] {
@@ -261,7 +261,7 @@ button.mat-mdc-raised-button:hover {
 
 .mat-mdc-paginator {
   border-radius: 12px !important;
-  background: #f8f9ff !important;
+  background: #f1f8f1 !important;
 }
 
 ::-webkit-scrollbar {
@@ -274,17 +274,17 @@ button.mat-mdc-raised-button:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c5cae9;
+  background: #a5d6a7;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9fa8da;
+  background: #66bb6a;
 }
 
 .mat-mdc-select-arrow {
   transform: scale(1.8) !important;
-  color: #3f51b5 !important;
+  color: #2e7d32 !important;
 }
 
 .mat-mdc-select-arrow-wrapper {
@@ -313,12 +313,12 @@ button.mat-mdc-raised-button:hover {
 }
 
 .mat-mdc-option:hover {
-  background: #e8eaf6 !important;
+  background: #e8f5e9 !important;
 }
 
 .mat-mdc-option.mdc-list-item--selected {
-  background: #e8eaf6 !important;
-  color: #3f51b5 !important;
+  background: #e8f5e9 !important;
+  color: #2e7d32 !important;
   font-weight: 600 !important;
 }
 
