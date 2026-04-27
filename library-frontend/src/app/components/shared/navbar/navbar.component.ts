@@ -13,7 +13,7 @@ import { ThemeService } from '../../../services/theme.service'
   imports: [RouterLink, RouterLinkActive, RouterOutlet, MatListModule, MatIconModule, MatTooltipModule, MatSlideToggleModule, CommonModule],
   styles: [`
     .sidebar {
-      background: linear-gradient(180deg, #1a237e 0%, #283593 60%, #3949ab 100%);
+      background: linear-gradient(180deg, #1b5e20 0%, #2e7d32 60%, #388e3c 100%);
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -129,7 +129,7 @@ import { ThemeService } from '../../../services/theme.service'
     }
 
     .content.dark-mode {
-      background: #1a1a2e !important;
+      background: #1a2e1a !important;
     }
   `],
   template: `
@@ -138,48 +138,57 @@ import { ThemeService } from '../../../services/theme.service'
       <div class="sidebar" [style.width]="collapsed ? '64px' : '220px'">
 
         <div class="logo">
-          <span class="logo-icon">📚</span>
-          <span *ngIf="!collapsed">Online-könyvtár</span>
+          <span class="logo-icon">馃摎</span>
+          <span *ngIf="!collapsed">Online-k枚nyvt谩r</span>
         </div>
 
         <nav>
           <a class="nav-item"
              routerLink="/books"
              routerLinkActive="active-link"
-             [matTooltip]="collapsed ? 'Könyvek' : ''"
+             [matTooltip]="collapsed ? 'K枚nyvek' : ''"
              matTooltipPosition="right">
             <mat-icon class="nav-icon">menu_book</mat-icon>
-            <span *ngIf="!collapsed">Könyvek</span>
+            <span *ngIf="!collapsed">K枚nyvek</span>
           </a>
 
           <a class="nav-item"
              routerLink="/authors"
              routerLinkActive="active-link"
-             [matTooltip]="collapsed ? 'Szerzők' : ''"
+             [matTooltip]="collapsed ? 'Szerz艖k' : ''"
              matTooltipPosition="right">
             <mat-icon class="nav-icon">people</mat-icon>
-            <span *ngIf="!collapsed">Szerzők</span>
+            <span *ngIf="!collapsed">Szerz艖k</span>
+          </a>
+
+          <a class="nav-item"
+             routerLink="/about"
+             routerLinkActive="active-link"
+             [matTooltip]="collapsed ? 'R贸lunk' : ''"
+             matTooltipPosition="right">
+            <mat-icon class="nav-icon">info</mat-icon>
+            <span *ngIf="!collapsed">R贸lunk</span>
           </a>
         </nav>
 
         <div class="collapse-btn" (click)="collapsed = !collapsed"
-             [matTooltip]="collapsed ? 'Kibontás' : ''"
+             [matTooltip]="collapsed ? 'Kibont谩s' : ''"
              matTooltipPosition="right">
           <mat-icon style="min-width: 20px; transition: transform 0.3s ease;"
                     [style.transform]="collapsed ? 'rotate(180deg)' : 'rotate(0deg)'">
             chevron_left
           </mat-icon>
-          <span *ngIf="!collapsed" style="font-size: 13px;">Összecsukás</span>
+          <span *ngIf="!collapsed" style="font-size: 13px;">脰sszecsuk谩s</span>
         </div>
 
         <!-- Dark mode toggle -->
         <div class="theme-toggle"
-             [matTooltip]="collapsed ? (themeService.isDarkMode() ? 'Light mód' : 'Dark mód') : ''"
+             [matTooltip]="collapsed ? (themeService.isDarkMode() ? 'Light m贸d' : 'Dark m贸d') : ''"
              matTooltipPosition="right"
              (click)="collapsed ? themeService.toggleTheme() : null">
           <mat-icon>{{ themeService.isDarkMode() ? 'dark_mode' : 'light_mode' }}</mat-icon>
           <ng-container *ngIf="!collapsed">
-            <span>Dark mód</span>
+            <span>Dark m贸d</span>
             <mat-slide-toggle
               [checked]="themeService.isDarkMode()"
               (change)="themeService.toggleTheme()"
