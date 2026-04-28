@@ -1,197 +1,101 @@
-# 📚 Online Könyvtár – Library App
+# 📚 Online Könyvtár
 
-Teljes stack webalkalmazás könyvek és szerzők kezelésére modern DevOps környezettel.
+<div align="center">
+
+![Angular](https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![ASP.NET](https://img.shields.io/badge/ASP.NET-10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-8-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Minikube-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-GitOps-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+
+**Teljes stack könyvtárkezelő alkalmazás – Angular frontend, ASP.NET backend, MongoDB adatbázis**
+
+[🚀 Gyors indítás](#-gyors-indítás) · [📖 Funkciók](#-funkciók) · [🏗️ Architektúra](#️-architektúra) · [📡 API](#-api-végpontok)
+
+</div>
 
 ---
 
-## 🏗️ Technológiai stack
+## 📖 Funkciók
 
-| Réteg          | Technológia                   |
-| -------------- | ----------------------------- |
-| Frontend       | Angular 21 + Angular Material |
-| Backend        | ASP.NET 10 Web API            |
-| Adatbázis      | MongoDB                       |
-| Konténerizálás | Docker + Docker Compose       |
-| Orchestration  | Kubernetes (Minikube)         |
-| CI             | GitHub Actions                |
-| CD             | ArgoCD (GitOps)               |
+### 📚 Könyvkezelés
+- ✅ Könyvek hozzáadása, szerkesztése, törlése
+- ✅ Részletes könyvnézet (szerző, év, műfaj, leírás)
+- ✅ Keresés cím, szerző és műfaj alapján
+- ✅ Szűrés műfaj szerint
+- ✅ Rendezés (cím, év, szerző szerint)
+- ✅ Lapozás (5/10/20 elem oldalanként)
+
+### ✍️ Szerzőkezelés
+- ✅ Szerzők hozzáadása, szerkesztése, törlése
+- ✅ Keresés név és nemzetiség alapján
+- ✅ Lapozás
+
+### 📊 Dashboard
+- ✅ Statisztikai kártyák (könyvek, szerzők, legújabb év, műfajok)
+- ✅ Műfajok eloszlása – Pie chart
+- ✅ Évek szerinti eloszlás – Bar chart
+
+### 🎨 UI/UX
+- ✅ Dark mode / Light mode kapcsoló
+- ✅ Törlés megerősítő dialog
+- ✅ Snackbar értesítések (mentés, törlés után)
+- ✅ Responsive design (mobil + desktop)
+- ✅ Modern zöld Angular Material dizájn
+- ✅ Smooth animációk és hover effektek
+- ✅ Rólunk oldal (csapat, funkciók, technológiák)
+
+### 🔌 Backend API
+- ✅ Keresési végpontok (`/api/books/search`, `/api/authors/search`)
+- ✅ Magyar Swagger dokumentáció
+- ✅ ID validáció (MongoDB 24 karakteres hex)
+- ✅ Magyar hibaüzenetek
+- ✅ Automatikus seed data (5 szerző, 12 könyv)
 
 ---
 
-## 🚀 Gyors indítás (Docker Compose)
+## 🏗️ Architektúra
 
-### Előfeltételek
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Angular 21     │────▶│  ASP.NET 10     │────▶│  MongoDB 8      │
+│  Frontend       │     │  REST API       │     │  Adatbázis      │
+│  (Port 4200)    │     │  (Port 8080)    │     │  (Port 27017)   │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
-* Docker Desktop telepítve és fut
-* Git telepítve
+### Technológiai stack
 
-### Indítás
+| Réteg | Technológia |
+|---|---|
+| 🌐 Frontend | Angular 21 + Angular Material + Chart.js |
+| ⚙️ Backend | ASP.NET 10 Web API |
+| 🗄️ Adatbázis | MongoDB 8 |
+| 🐳 Konténerizálás | Docker + Docker Compose |
+| ☸️ Orchestráció | Kubernetes (Minikube) |
+| 🔄 CI Pipeline | GitHub Actions |
+| 🚀 CD Pipeline | ArgoCD (GitOps) |
+
+---
+
+## 🚀 Gyors indítás
+
+### 🐳 Docker Compose (Ajánlott)
+
+> Csak Docker Desktop szükséges!
 
 ```bash
-# Repo klónozása
+# 1. Klónozd a repo-t
 git clone https://github.com/Werbygbr/library-app.git
 cd library-app
 
-# Alkalmazás indítása
+# 2. Indítsd el
 docker-compose up --build
 ```
 
-### Elérés
-
-* Frontend: http://localhost:4200
-* Swagger API: http://localhost:8080/swagger
-
-### Leállítás
-
-```bash
-docker-compose down
-```
-
----
-
-## ☸️ Kubernetes futtatás (Minikube)
-
-### Előfeltételek
-
-* Docker Desktop
-* Minikube
-* kubectl
-
-### Lépések
-
-```bash
-# Repo klónozása
-git clone https://github.com/Werbygbr/library-app.git
-cd library-app
-
-# Minikube indítása
-minikube start
-
-# Deploy
-kubectl apply -f k8s/
-
-# Podok figyelése
-kubectl get pods -w
-```
-
-### Megnyitás
-
-```bash
-minikube service frontend
-```
-
-⚠️ Fontos: a terminált nyitva kell tartani a futás alatt.
-
-### Ellenőrzés
-
-```bash
-kubectl get pods
-kubectl get services
-```
-
----
-
-## 🔄 CI/CD Pipeline
-
-### ⚙️ GitHub Actions (CI)
-
-Minden `main` branch push esetén:
-
-* Backend Docker image build
-* Frontend Docker image build
-* Push GitHub Container Registry-be (ghcr.io)
-
----
-
-### 🚀 ArgoCD (CD)
-
-* Automatikus deploy Kubernetes clusterbe (GitOps)
-* Repo folyamatos figyelése
-
-### ArgoCD UI elérés
-
-```bash
-kubectl port-forward svc/argocd-server -n argocd 8091:443
-```
-
-👉 https://localhost:8091
-
-**Belépés:**
-
-* User: `admin`
-* Password lekérése:
-
-```bash
-$encoded = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
-[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encoded))
-```
-
----
-
-## 📁 Projekt struktúra
-
-```
-library-app/
-├── LibraryApi/              # ASP.NET Backend
-│   ├── Controllers/         # API végpontok
-│   ├── Models/              # Book, Author modellek
-│   ├── Services/            # Business logic
-│   ├── Settings/            # MongoDB config
-│   └── Dockerfile
-│
-├── library-frontend/        # Angular Frontend
-│   ├── src/app/
-│   │   ├── components/      # UI komponensek
-│   │   ├── models/          # TypeScript interfészek
-│   │   └── services/        # HTTP hívások
-│   └── Dockerfile
-│
-├── k8s/                     # Kubernetes manifestek
-│   ├── mongodb-deployment.yaml
-│   ├── backend-deployment.yaml
-│   ├── frontend-deployment.yaml
-│   └── argocd-application.yaml
-│
-├── .github/workflows/
-│   └── ci.yml               # CI pipeline
-│
-└── docker-compose.yml
-```
-
----
-
-## 🌐 API végpontok
-
-### 📚 Könyvek
-
-| Method | Endpoint        | Leírás       |
-| ------ | --------------- | ------------ |
-| GET    | /api/books      | Összes könyv |
-| GET    | /api/books/{id} | Egy könyv    |
-| POST   | /api/books      | Létrehozás   |
-| PUT    | /api/books/{id} | Módosítás    |
-| DELETE | /api/books/{id} | Törlés       |
-
----
-
-### ✍️ Szerzők
-
-| Method | Endpoint          | Leírás        |
-| ------ | ----------------- | ------------- |
-| GET    | /api/authors      | Összes szerző |
-| GET    | /api/authors/{id} | Egy szerző    |
-| POST   | /api/authors      | Létrehozás    |
-| PUT    | /api/authors/{id} | Módosítás     |
-| DELETE | /api/authors/{id} | Törlés        |
-
----
-
-## 💡 Funkciók
-
-* 📚 Könyvek CRUD
-* ✍️ Szerzők CRUD
-* 📊 Dashboard statisztikák
-* 🔍 Részletes könyv nézet
-* 📄 Lapozás (pagination)
-* 📱 Reszponzív UI
-* 🎨 Angular Material design
+| Szolgáltatás | URL |
+... (136 sor maradt)
